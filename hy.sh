@@ -21,7 +21,11 @@ chmod +x go.sh
 systemctl start v2ray
 
 echo -e "\e[1;35m显示v2ray节点信息： \e[0m"
-head /etc/v2ray/config.json | tail -8
+echo -e "\e[1;35mIP：$(curl ifconfig.me)"
+echo -e "\e[1;35m$(head -3 /etc/v2ray/config.json | tail -1)" | tr -d " " | tr -d '"' | tr -d ","
+echo -e "\e[1;35m$(head -8 /etc/v2ray/config.json | tail -1)" | tr -d " " | tr -d '"' | tr -d ","
+echo -e "\e[1;35m$(head -10 /etc/v2ray/config.json | tail -1)" | tr -d " " | tr -d '"' | tr -d ","
+echo -e "\e[0m"
 sleep 2
 echo -e "\e[1;33m检测加速脚本bbr.sh是否存在 \e[0m"
 sleep 1.5s
