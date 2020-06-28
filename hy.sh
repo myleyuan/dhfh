@@ -21,7 +21,7 @@ chmod +x go.sh
 systemctl start v2ray
 
 echo -e "\e[1;35m显示v2ray节点信息： \e[0m"
-cat /etc/v2ray/config.json
+head /etc/v2ray/config.json | tail -8
 sleep 2
 echo -e "\e[1;33m检测加速脚本bbr.sh是否存在 \e[0m"
 sleep 1.5s
