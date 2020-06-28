@@ -2,26 +2,16 @@
 
 
 echocolor（）{
-
-　　color=${1} && shift
-
-　　case ${color} in
-
-　　black）
-
-　　echo -e “\e［0;30m${@}\e［0m”
-
-　　;;
-
-　　red）
-
-　　echo -e “\e［0;31m${@}\e［0m”
-
-　　;;
-
-　　green）
-
-　　echo -e “\e［0;32m${@}\e［0m”
+color=${1} && shift
+case ${color} in
+black）
+echo -e “\e［0;30m${@}\e［0m”
+;;
+red）
+echo -e “\e［0;31m${@}\e［0m”
+;;
+green）
+echo -e “\e［0;32m${@}\e［0m”
 
 　　;;
 
