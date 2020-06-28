@@ -19,6 +19,10 @@ echo -e "\033[?25h"
 chmod +x go.sh
 ./go.sh
 systemctl start v2ray
+
+echo -e "\e[1;35m显示v2ray节点信息： \e[0m"
+cat /etc/v2ray/config.json
+sleep 2
 echo -e "\e[1;33m检测加速脚本bbr.sh是否存在 \e[0m"
 if [ ! -f bbr.sh ];then
     echo -e "\e[1;33m未检测到加速脚本bbr.sh！ \e[0m"
@@ -34,11 +38,6 @@ else
     chmod +x bbr.sh
     ./bbr.sh
 fi
-
-echo -e "\e[1;35m显示v2ray节点信息： \e[0m"
-
-cat /etc/v2ray/config.json
-sleep 2
 echo -e "\e[1;31m即将重启服务器，重启后请手动连接服务器 \e[0m"
 echo -e "\033[?25l"
 for I in {0..4};do
