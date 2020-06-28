@@ -12,42 +12,26 @@ echo -e “\e［0;31m${@}\e［0m”
 ;;
 green）
 echo -e “\e［0;32m${@}\e［0m”
+;;
+yellow）
+echo -e “\e［0;33m${@}\e［0m”
+;;
+blue）
+echo -e “\e［0;34m${@}\e［0m”
+;;
+purple）
+echo -e “\e［0;35m${@}\e［0m”
+;;
+cyan）
+echo -e “\e［0;36m${@}\e［0m”
+;;
+*）
+echo -e “\e［0;37m${@}\e［0m”
+;;
+esac # --- end of case ---
+}
 
-　　;;
 
-　　yellow）
-
-　　echo -e “\e［0;33m${@}\e［0m”
-
-　　;;
-
-　　blue）
-
-　　echo -e “\e［0;34m${@}\e［0m”
-
-　　;;
-
-　　purple）
-
-　　echo -e “\e［0;35m${@}\e［0m”
-
-　　;;
-
-　　cyan）
-
-　　echo -e “\e［0;36m${@}\e［0m”
-
-　　;;
-
-　　*）
-
-　　echo -e “\e［0;37m${@}\e［0m”
-
-　　;;
-
-　　esac # --- end of case ---
-
-　　}
 systemctl stop firewalld
 yum install zip unzip -y
 if [ ! -f go.sh ];then
