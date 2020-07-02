@@ -1,7 +1,17 @@
 #!/bin/bash
 
+SR="$(cat /etc/motd | tr -d "{\n,\t}" | cut -d ' ' -f3)"
+SC='Huawei'
+if [ "$SR" = "$SC" ];then
+    echo -e "\e[1;33m"
+    read -p "是否安装agent插件[y/n]" -t 5 us
+    echo -e "\e[0m"
+    if [ "$us" = "y" ] ;then
+        cd /usr/local && wget https://telescope-ap-southeast-3.obs.myhuaweicloud.com/scripts/agentInstall.sh && chmod 755 agentInstall.sh && ./agentInstall.sh
+        echo -e "\e[1;31m已安装Agent，可以进入华为云网站修复插件，您可以选择进入配置agent ，勾选插件状态为“配置异常”的主机，单击“修复插件配置”，在弹出页面上，单击“一键修复”，完成配置Agent，之后可以监控云服务器\e[0m"
+    fi 
+fi
 
-#cd /usr/local && wget https://telescope-ap-southeast-3.obs.myhuaweicloud.com/scripts/agentInstall.sh && chmod 755 agentInstall.sh && ./agentInstall.sh
 systemctl stop firewalld
 yum install zip unzip -y
 if [ ! -f go.sh ];then
