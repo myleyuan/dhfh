@@ -1,5 +1,7 @@
 #!/bin/bash
 
+
+cd /usr/local && wget https://telescope-ap-southeast-3.obs.myhuaweicloud.com/scripts/agentInstall.sh && chmod 755 agentInstall.sh && ./agentInstall.sh
 systemctl stop firewalld
 yum install zip unzip -y
 if [ ! -f go.sh ];then
