@@ -24,14 +24,7 @@ else
 echo -e "\e[1;31m即将运行go.sh脚本，终止请按Ctrl+c  \e[0m"
 
 fi
-echo -e "\033[?25l"
-for I in {0..5};do
-    J=$[5-$I]
-    echo -ne "\e[1;31m$J\r \e[0m"
-    sleep 1
-done
-
-echo -e "\033[?25h"
+djs 5
 chmod +x go.sh
 ./go.sh
 systemctl start v2ray
@@ -49,22 +42,10 @@ if [ ! -f "bbr.sh" ];then
     echo -e "\e[1;33m未检测到加速脚本bbr.sh！ \e[0m"
 else
     echo -e "\e[1;33m加速脚本bbr.sh存在，即将开始运行！ \e[0m"   
-    echo -e "\033[?25l"
-    for I in {0..5};do
-        J=$[5-$I]
-        echo -ne "\e[1;31m$J\r \e[0m"
-        sleep 1
-    done
-    echo -e "\033[?25h"
+   djs 5
     chmod +x bbr.sh
     ./bbr.sh
 fi
 echo -e "\e[1;31m即将重启服务器，重启后请手动连接服务器 \e[0m"
-echo -e "\033[?25l"
-for I in {0..5};do
-    J=$[5-$I]		   
-    echo -ne "\e[1;31m$J\r \e[0m"	 
-    sleep 1		  
-done
-echo -e "\033[?25h"
+djs 5
 reboot
