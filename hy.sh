@@ -16,11 +16,13 @@ sleep 3
 
 systemctl stop firewalld
 yum install zip unzip -y
-if [ ! -f /go.sh ];then
-    wget https://install.direct/go.sh
-    echo -e "\e[1;31m即将运行go.sh脚本，终止请按Ctrl+c \e[0m" 
+if [ ! -f "/root/go.sh" ];then
+
+wget https://install.direct/go.sh
+echo -e "\e[1;33m即将运行go.sh脚本，终止请按Ctrl+c  \e[0m"
 else
-    echo -e "\e[1;31m即将运行go.sh脚本，终止请按Ctrl+c  \e[0m"  
+echo -e "\e[1;31m即将运行go.sh脚本，终止请按Ctrl+c  \e[0m"
+
 fi
 echo -e "\033[?25l"
 for I in {0..5};do
@@ -43,7 +45,7 @@ echo -e "\e[0m"
 sleep 2
 echo -e "\e[1;33m检测加速脚本bbr.sh是否存在 \e[0m"
 sleep 1.5s
-if [ ! -f bbr.sh ];then
+if [ ! -f "/root/bbr.sh" ];then
     echo -e "\e[1;33m未检测到加速脚本bbr.sh！ \e[0m"
 else
     echo -e "\e[1;33m加速脚本bbr.sh存在，即将开始运行！ \e[0m"   
