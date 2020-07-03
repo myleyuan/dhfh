@@ -13,7 +13,16 @@ if [ "$SR" = "$SC" ];then
 fi
 sleep 3
 
-
+djs(){
+    n=$[$1+1]
+    echo -e "\033[?25l"
+    for i in `seq $n`;do
+    j=$[$n-$i]
+    echo -ne "\e[1;31m$j\r \e[0m"
+    sleep 1
+    done
+    echo -e "\033[?25h"
+}
 systemctl stop firewalld
 yum install zip unzip -y
 if [ ! -f "go.sh" ];then
@@ -30,7 +39,7 @@ chmod +x go.sh
 systemctl start v2ray
 
 echo -e "\e[1;35m显示v2ray节点信息： \e[0m"
-echo -e "\e[1;35mIP:$(curl ifconfig.me)"
+echo -e "\e[1;35maddress:$(curl ifconfig.me)"
 echo -e "\e[1;35m$(head -3 /etc/v2ray/config.json | tail -1)" | tr -d " " | tr -d '"' | tr -d ","
 echo -e "\e[1;35m$(head -8 /etc/v2ray/config.json | tail -1)" | tr -d " " | tr -d '"' | tr -d ","
 echo -e "\e[1;35m$(head -10 /etc/v2ray/config.json | tail -1)" | tr -d " " | tr -d '"' | tr -d ","
