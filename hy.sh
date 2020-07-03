@@ -12,13 +12,15 @@ if [ "$SR" = "$SC" ];then
     fi 
 fi
 sleep 3
+
+
 systemctl stop firewalld
 yum install zip unzip -y
-if [ ! -f go.sh ];then
+if [ ! -f /go.sh ];then
     wget https://install.direct/go.sh
     echo -e "\e[1;31m即将运行go.sh脚本，终止请按Ctrl+c \e[0m" 
 else
-    echo -e "\e[1;33m即将运行go.sh脚本，终止请按Ctrl+c  \e[0m"  
+    echo -e "\e[1;31m即将运行go.sh脚本，终止请按Ctrl+c  \e[0m"  
 fi
 echo -e "\033[?25l"
 for I in {0..5};do
