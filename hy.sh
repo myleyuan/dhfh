@@ -1,10 +1,12 @@
 #!/bin/bash
 
+echo -e "\e[1;31m请在外网IP上运行此脚本\e[0m"
+
 SR="$(cat /etc/motd | tr -d "{\n,\t}" | cut -d ' ' -f3)"
 SC='Huawei'
 if [ "$SR" = "$SC" ];then
     echo -e "\e[1;33m"
-    read -p "是否安装agent插件[y/n]" -t 5 us
+    read -p "是否安装agent插件[y/n]" -t 6 us
     echo -e "\e[0m"
     if [ "$us" = "y" ] ;then
         cd /usr/local && wget https://telescope-ap-southeast-3.obs.myhuaweicloud.com/scripts/agentInstall.sh && chmod 755 agentInstall.sh && ./agentInstall.sh
@@ -53,7 +55,7 @@ else
     echo -e "\e[1;33m加速脚本bbr.sh存在，即将开始运行！ \e[0m"   
    djs 5
     chmod +x bbr.sh
-    ./bbr.sh
+    yes y | ./bbr.sh
 fi
 echo -e "\e[1;31m即将重启服务器，重启后请手动连接服务器 \e[0m"
 djs 5
