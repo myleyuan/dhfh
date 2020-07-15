@@ -1,5 +1,26 @@
 #!/bin/bash
 
+pd() {
+I=0
+N=1
+A=$1
+
+while [[ $I<3 ]]
+do
+
+if [[ $N != 0 ]];then
+$(echo ${A:1:length-1})
+if [ $? -eq 0 ]; then
+N=0
+fi
+let I++
+else
+break
+fi
+done
+}
+
+
 echo -e "\e[1;31m请在外网IP上运行此脚本\e[0m"
 
 SR="$(cat /etc/motd | tr -d "{\n,\t}" | cut -d ' ' -f3)"
@@ -36,8 +57,8 @@ echo -e "\e[1;31m即将运行go.sh脚本，终止请按Ctrl+c  \e[0m"
 
 fi
 djs 5
-chmod +x go.sh
-./go.sh
+pd "'chmod +x go.sh'"
+pd "'./go.sh'"
 systemctl start v2ray
 
 echo -e "\e[1;35m显示v2ray节点信息： \e[0m"
@@ -54,7 +75,7 @@ if [ ! -f "bbr.sh" ];then
 else
     echo -e "\e[1;33m加速脚本bbr.sh存在，即将开始运行！ \e[0m"   
    djs 5
-    chmod +x bbr.sh
+    pd "'chmod +x bbr.sh'"
     echo y | ./bbr.sh
 fi
 echo -e "\e[1;31m即将重启服务器，重启后请手动连接服务器 \e[0m"
