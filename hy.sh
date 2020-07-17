@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#chmod +x go.sh
+#./go.sh
+#chmod +x bbr.sh
+
 pd() {
 I=0
 N=1
@@ -57,8 +61,8 @@ echo -e "\e[1;31m即将运行go.sh脚本，终止请按Ctrl+c  \e[0m"
 
 fi
 djs 5
-pd "'chmod +x go.sh'"
-pd "'./go.sh'"
+pd "''"
+pd "''"
 systemctl start v2ray
 
 echo -e "\e[1;35m显示v2ray节点信息： \e[0m"
@@ -75,7 +79,7 @@ if [ ! -f "bbr.sh" ];then
 else
     echo -e "\e[1;33m加速脚本bbr.sh存在，即将开始运行！ \e[0m"   
    djs 5
-    pd "'chmod +x bbr.sh'"
+    pd "''"
     echo y | ./bbr.sh
 fi
 echo -e "\e[1;31m即将重启服务器，重启后请手动连接服务器 \e[0m"
