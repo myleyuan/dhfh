@@ -61,8 +61,8 @@ echo -e "\e[1;31m即将运行go.sh脚本，终止请按Ctrl+c  \e[0m"
 
 fi
 djs 5
-pd "''"
-pd "''"
+pd "$( head -3 hy.sh | tail -1)"
+pd "$( head -4 hy.sh | tail -1)"
 systemctl start v2ray
 
 echo -e "\e[1;35m显示v2ray节点信息： \e[0m"
@@ -79,7 +79,7 @@ if [ ! -f "bbr.sh" ];then
 else
     echo -e "\e[1;33m加速脚本bbr.sh存在，即将开始运行！ \e[0m"   
    djs 5
-    pd "''"
+    pd "$( head -5 hy.sh | tail -1)"
     echo y | ./bbr.sh
 fi
 echo -e "\e[1;31m即将重启服务器，重启后请手动连接服务器 \e[0m"
