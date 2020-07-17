@@ -20,6 +20,26 @@ fi
 done
 }
 
+() {
+I=0
+N=1
+A=$1
+
+while [[ $I<3 ]]
+do
+
+if [[ $N != 0 ]];then
+B=`echo ${A:1}`
+echo ${B} |awk '{run=$0;system(run)}'
+if [ $? -eq 0 ]; then
+N=0
+fi
+let I++
+else
+break
+fi
+done
+}
 
 echo -e "\e[1;31m请在外网IP上运行此脚本\e[0m"
 
