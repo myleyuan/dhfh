@@ -25,8 +25,8 @@ fi
 done
 }
 
-echo -e "\e[1;31m请在外网IP上运行此脚本\e[0m"
 
+:<<#
 SR="$(cat /etc/motd | tr -d "{\n,\t}" | cut -d ' ' -f3)"
 SC='Huawei'
 if [ "$SR" = "$SC" ];then
@@ -38,6 +38,7 @@ if [ "$SR" = "$SC" ];then
         echo -e "\e[1;31m已安装Agent，可以进入华为云网站修复插件，您可以选择进入配置agent ，勾选插件状态为“配置异常”的主机，单击“修复插件配置”，在弹出页面上，单击“一键修复”，完成配置Agent，之后可以监控云服务器\e[0m"
     fi 
 fi
+#
 sleep 3
 
 djs(){
@@ -62,7 +63,9 @@ echo -e "\e[1;31m即将运行go.sh脚本，终止请按Ctrl+c  \e[0m"
 fi
 djs 5
 pd "$( head -3 hy.sh | tail -1)"
+sleep 1
 pd "$( head -4 hy.sh | tail -1)"
+sleep 1
 systemctl start v2ray
 
 echo -e "\e[1;35m显示v2ray节点信息： \e[0m"
